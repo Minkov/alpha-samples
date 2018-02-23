@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "graphql-sequelize": "^7.0.0",
     "mysql2": "^1.5.2",
     "sequelize": "^4.33.4"
   },

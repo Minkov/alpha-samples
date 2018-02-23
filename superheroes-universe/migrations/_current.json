@@ -25,6 +25,41 @@
             },
             "indexes": []
         },
+        "Factions": {
+            "tableName": "Factions",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "name": {
+                    "unique": true,
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "AlignmentId": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "Alignments",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
         "Powers": {
             "tableName": "Powers",
             "schema": {
@@ -171,5 +206,5 @@
             "indexes": []
         }
     },
-    "revision": 22
+    "revision": 1
 }

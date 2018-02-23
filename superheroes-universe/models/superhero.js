@@ -2,7 +2,9 @@
 module.exports = (sequelize, DataTypes) => {
   const Superhero = sequelize.define('Superhero', {
     name: {
+      /* eslint-disable */
       type: DataTypes.STRING(3, 60),
+      /* eslint-enable */
       unique: true,
       allowNull: false,
     },
