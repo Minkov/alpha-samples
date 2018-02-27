@@ -1,10 +1,11 @@
-'use strict';
+const {
+  superheroesData,
+} = require('./data/seed-1.json');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Alignments', [{
       name: 'Good',
-      createdAt: new Date(),
       updatedAt: new Date(),
     }, {
       name: 'Evil',

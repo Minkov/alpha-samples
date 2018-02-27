@@ -1,6 +1,12 @@
-const db = require("./models");
-
 const {
     Superhero,
-    Power
-} = db;
+    sequelize,
+} = require('./models');
+
+
+const run = async () => {
+    await sequelize.sync();
+    Superhero.create({
+
+    });
+};

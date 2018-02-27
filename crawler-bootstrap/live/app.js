@@ -20,10 +20,6 @@ const run = async () => {
     const phoneUrls = await Promise.all(
         pageUrls.map(url => extractPhones(url))
     );
-    //
-
-
-
 };
 
 run();
