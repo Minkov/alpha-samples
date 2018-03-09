@@ -17,8 +17,21 @@ block content
                     span
                         =alignment.name
         div
+            each power in powers
+                label
+                    input(name="powerIdOrName" type="checkbox" value=power.id)
+                    span
+                        =power.name
+            input.tb-new-power
+        div
             textarea(name="story")
 
         div
             button.btn
                 | Save
+
+        script#power-tmp(type="tmp")
+            | <label>
+            |   <input name="powerIdOrName" type="checkbox" />
+            |   <span></span>
+            | </label>

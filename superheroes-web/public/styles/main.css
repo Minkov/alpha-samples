@@ -41,6 +41,10 @@ li {
     color: white;
 }
 
+.main-nav img {
+    height: 20px;
+}
+
 .btn {
     display: inline-block;
     padding: 5px 15px;

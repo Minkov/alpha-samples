@@ -17,9 +17,11 @@ const init = (app, data) => {
         })
         .get('/create', async (req, res) => {
             const alignments = await data.alignments.getAll();
+            const powers = await data.powers.getAll();
 
             const context = {
                 alignments,
+                powers,
             };
 
             res.render('superheroes/create', context);
@@ -30,6 +32,8 @@ const init = (app, data) => {
             } = req.params;
 
             const superhero = await data.superheroes.getById(+id);
+            superhero.alignment = await superhero.getAlignment();
+            superhero.powers = await superhero.getPowers();
 
             const model = {
                 superhero,
@@ -38,11 +42,19 @@ const init = (app, data) => {
             res.render('superheroes/details', model);
         })
         .post('/', async (req, res) => {
-            const superhero = req.body;
+            const superheroModel = req.body;
+            const powersIds = Array.isArray(superheroModel.powerIdOrName) ?
+                superheroModel.powerIdOrName : [superheroModel.powerIdOrName];
 
-            superhero.AlignmentId = +superhero.AlignmentId;
+            const powers = await Promise.all(
+                powersIds.map((id) => {
+                    return data.powers.getById(+id);
+                }));
 
-            await data.superheroes.create(superhero);
+            superheroModel.AlignmentId = +superheroModel.AlignmentId;
+
+            const superhero = await data.superheroes.create(superheroModel);
+            await superhero.setPowers(powers);
             res.redirect('/superheroes');
         });
 
