@@ -1,0 +1,24 @@
+extends ../_shared/master
+
+block content
+    form(action="/superheroes",method="POST")
+        div
+            input(type="text", name="name", placeholder="Enter name...")
+        div
+            input(type="password", name="secretIdentity", placeholder="Enter secret Identity...")
+
+        div
+            each alignment, index in alignments
+                label
+                    if index === 0
+                        input(name="AlignmentId" type="radio" value=alignment.id checked)
+                    else
+                        input(name="AlignmentId" type="radio" value=alignment.id)
+                    span
+                        =alignment.name
+        div
+            textarea(name="story")
+
+        div
+            button.btn
+                | Save
