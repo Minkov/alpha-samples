@@ -4,6 +4,7 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint . --fix",
     "migrate": "cd db && ../node_modules/.bin/sequelize db:migrate && cd .. ",
     "add-migration": "cd db && node ../node_modules/sequelize-auto-migrations/bin/makemigration.js && cd .."
   },

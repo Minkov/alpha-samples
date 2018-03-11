@@ -1,5 +1,4 @@
 const {
-    Superhero,
     Alignment,
     Power,
     Faction,

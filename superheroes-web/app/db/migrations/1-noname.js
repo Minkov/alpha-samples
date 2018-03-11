@@ -1,6 +1,6 @@
 'use strict';
 
-var Sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 
 /**
  * Actions summary:
@@ -14,257 +14,255 @@ var Sequelize = require('sequelize');
  *
  **/
 
-var info = {
-    "revision": 1,
-    "name": "noname",
-    "created": "2018-03-09T08:59:20.499Z",
-    "comment": ""
+const info = {
+    'revision': 1,
+    'name': 'noname',
+    'created': '2018-03-09T08:59:20.499Z',
+    'comment': '',
 };
 
-var migrationCommands = [{
-        fn: "createTable",
+const migrationCommands = [{
+        fn: 'createTable',
         params: [
-            "Alignments",
+            'Alignments',
             {
-                "id": {
-                    "type": Sequelize.INTEGER,
-                    "autoIncrement": true,
-                    "primaryKey": true,
-                    "allowNull": false
+                'id': {
+                    'type': Sequelize.INTEGER,
+                    'autoIncrement': true,
+                    'primaryKey': true,
+                    'allowNull': false,
                 },
-                "name": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false,
-                    "unique": true
+                'name': {
+                    'type': Sequelize.STRING,
+                    'allowNull': false,
+                    'unique': true,
                 },
-                "createdAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
+                'createdAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
                 },
-                "updatedAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
-                }
+                'updatedAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
+                },
             },
-            {}
-        ]
+            {},
+        ],
     },
     {
-        fn: "createTable",
+        fn: 'createTable',
         params: [
-            "PowerTypes",
+            'PowerTypes',
             {
-                "id": {
-                    "type": Sequelize.INTEGER,
-                    "autoIncrement": true,
-                    "primaryKey": true,
-                    "allowNull": false
+                'id': {
+                    'type': Sequelize.INTEGER,
+                    'autoIncrement': true,
+                    'primaryKey': true,
+                    'allowNull': false,
                 },
-                "name": {
-                    "type": Sequelize.STRING(3).BINARY,
-                    "allowNull": false,
-                    "unique": true
+                'name': {
+                    'type': Sequelize.STRING(3).BINARY,
+                    'allowNull': false,
+                    'unique': true,
                 },
-                "createdAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
+                'createdAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
                 },
-                "updatedAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
-                }
+                'updatedAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
+                },
             },
-            {}
-        ]
+            {},
+        ],
     },
     {
-        fn: "createTable",
+        fn: 'createTable',
         params: [
-            "Factions",
+            'Factions',
             {
-                "id": {
-                    "type": Sequelize.INTEGER,
-                    "autoIncrement": true,
-                    "primaryKey": true,
-                    "allowNull": false
+                'id': {
+                    'type': Sequelize.INTEGER,
+                    'autoIncrement': true,
+                    'primaryKey': true,
+                    'allowNull': false,
                 },
-                "name": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false,
-                    "unique": true
+                'name': {
+                    'type': Sequelize.STRING,
+                    'allowNull': false,
+                    'unique': true,
                 },
-                "createdAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
+                'createdAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
                 },
-                "updatedAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
+                'updatedAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
                 },
-                "AlignmentId": {
-                    "type": Sequelize.INTEGER,
-                    "onUpdate": "CASCADE",
-                    "onDelete": "CASCADE",
-                    "references": {
-                        "model": "Alignments",
-                        "key": "id"
+                'AlignmentId': {
+                    'type': Sequelize.INTEGER,
+                    'onUpdate': 'CASCADE',
+                    'onDelete': 'CASCADE',
+                    'references': {
+                        'model': 'Alignments',
+                        'key': 'id',
                     },
-                    "allowNull": false
-                }
+                    'allowNull': false,
+                },
             },
-            {}
-        ]
+            {},
+        ],
     },
     {
-        fn: "createTable",
+        fn: 'createTable',
         params: [
-            "Powers",
+            'Powers',
             {
-                "id": {
-                    "type": Sequelize.INTEGER,
-                    "autoIncrement": true,
-                    "primaryKey": true,
-                    "allowNull": false
+                'id': {
+                    'type': Sequelize.INTEGER,
+                    'autoIncrement': true,
+                    'primaryKey': true,
+                    'allowNull': false,
                 },
-                "name": {
-                    "type": Sequelize.STRING(3).BINARY,
-                    "allowNull": false,
-                    "unique": true
+                'name': {
+                    'type': Sequelize.STRING(3).BINARY,
+                    'allowNull': false,
+                    'unique': true,
                 },
-                "createdAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
+                'createdAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
                 },
-                "updatedAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
+                'updatedAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
                 },
-                "PowerTypeId": {
-                    "type": Sequelize.INTEGER,
-                    "onUpdate": "CASCADE",
-                    "onDelete": "SET NULL",
-                    "references": {
-                        "model": "PowerTypes",
-                        "key": "id"
+                'PowerTypeId': {
+                    'type': Sequelize.INTEGER,
+                    'onUpdate': 'CASCADE',
+                    'onDelete': 'SET NULL',
+                    'references': {
+                        'model': 'PowerTypes',
+                        'key': 'id',
                     },
-                    "allowNull": true
-                }
+                    'allowNull': true,
+                },
             },
-            {}
-        ]
+            {},
+        ],
     },
     {
-        fn: "createTable",
+        fn: 'createTable',
         params: [
-            "Superheros",
+            'Superheros',
             {
-                "id": {
-                    "type": Sequelize.INTEGER,
-                    "autoIncrement": true,
-                    "primaryKey": true,
-                    "allowNull": false
+                'id': {
+                    'type': Sequelize.INTEGER,
+                    'autoIncrement': true,
+                    'primaryKey': true,
+                    'allowNull': false,
                 },
-                "name": {
-                    "type": Sequelize.STRING(3).BINARY,
-                    "allowNull": false,
-                    "unique": true
+                'name': {
+                    'type': Sequelize.STRING(3).BINARY,
+                    'allowNull': false,
+                    'unique': true,
                 },
-                "secretIdentity": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false,
-                    "unique": true
+                'secretIdentity': {
+                    'type': Sequelize.STRING,
+                    'allowNull': false,
+                    'unique': true,
                 },
-                "story": {
-                    "type": Sequelize.STRING,
-                    "validate": {
-                        "notEmpty": true
+                'story': {
+                    'type': Sequelize.STRING,
+                    'validate': {
+                        'notEmpty': true,
                     },
-                    "allowNull": false
+                    'allowNull': false,
                 },
-                "createdAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
+                'createdAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
                 },
-                "updatedAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
+                'updatedAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
                 },
-                "AlignmentId": {
-                    "type": Sequelize.INTEGER,
-                    "onUpdate": "CASCADE",
-                    "onDelete": "CASCADE",
-                    "references": {
-                        "model": "Alignments",
-                        "key": "id"
+                'AlignmentId': {
+                    'type': Sequelize.INTEGER,
+                    'onUpdate': 'CASCADE',
+                    'onDelete': 'CASCADE',
+                    'references': {
+                        'model': 'Alignments',
+                        'key': 'id',
                     },
-                    "allowNull": false
-                }
+                    'allowNull': false,
+                },
             },
-            {}
-        ]
+            {},
+        ],
     },
     {
-        fn: "createTable",
+        fn: 'createTable',
         params: [
-            "SuperheroesPowers",
+            'SuperheroesPowers',
             {
-                "SuperheroId": {
-                    "type": Sequelize.INTEGER,
-                    "allowNull": true,
-                    "onUpdate": "CASCADE",
-                    "onDelete": "CASCADE",
-                    "references": {
-                        "model": "Superheros",
-                        "key": "id"
+                'SuperheroId': {
+                    'type': Sequelize.INTEGER,
+                    'allowNull': true,
+                    'onUpdate': 'CASCADE',
+                    'onDelete': 'CASCADE',
+                    'references': {
+                        'model': 'Superheros',
+                        'key': 'id',
                     },
-                    "unique": "SuperheroesPowers_PowerId_SuperheroId_unique",
-                    "primaryKey": true
+                    'unique': 'SuperheroesPowers_PowerId_SuperheroId_unique',
+                    'primaryKey': true,
                 },
-                "PowerId": {
-                    "type": Sequelize.INTEGER,
-                    "allowNull": true,
-                    "onUpdate": "CASCADE",
-                    "onDelete": "CASCADE",
-                    "references": {
-                        "model": "Powers",
-                        "key": "id"
+                'PowerId': {
+                    'type': Sequelize.INTEGER,
+                    'allowNull': true,
+                    'onUpdate': 'CASCADE',
+                    'onDelete': 'CASCADE',
+                    'references': {
+                        'model': 'Powers',
+                        'key': 'id',
                     },
-                    "unique": "SuperheroesPowers_PowerId_SuperheroId_unique",
-                    "primaryKey": true
+                    'unique': 'SuperheroesPowers_PowerId_SuperheroId_unique',
+                    'primaryKey': true,
                 },
-                "createdAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
+                'createdAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
                 },
-                "updatedAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
-                }
+                'updatedAt': {
+                    'type': Sequelize.DATE,
+                    'allowNull': false,
+                },
             },
-            {}
-        ]
-    }
+            {},
+        ],
+    },
 ];
 
 module.exports = {
     pos: 0,
-    up: function(queryInterface, Sequelize)
-    {
-        var index = this.pos;
+    up: function(queryInterface, Sequelize) {
+        let index = this.pos;
         return new Promise(function(resolve, reject) {
             function next() {
-                if (index < migrationCommands.length)
-                {
-                    let command = migrationCommands[index];
-                    console.log("[#"+index+"] execute: " + command.fn);
+                if (index < migrationCommands.length) {
+                    const command = migrationCommands[index];
+                    console.log('[#'+index+'] execute: ' + command.fn);
                     index++;
-                    queryInterface[command.fn].apply(queryInterface, command.params).then(next, reject);
-                }
-                else
-                    resolve();
+                    queryInterface[command.fn](...command.params).then(next, reject);
+                } else {
+resolve();
+}
             }
             next();
         });
     },
-    info: info
+    info: info,
 };

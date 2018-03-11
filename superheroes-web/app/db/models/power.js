@@ -2,7 +2,9 @@
 module.exports = (sequelize, DataTypes) => {
   const Power = sequelize.define('Power', {
     name: {
+      /* eslint-disable */
       type: DataTypes.STRING(60),
+      /* eslint-enable */
       unique: true,
       allowNull: false,
     },
@@ -14,6 +16,6 @@ module.exports = (sequelize, DataTypes) => {
 
     Power.belongsTo(PowerType);
   };
-  
+
   return Power;
 };

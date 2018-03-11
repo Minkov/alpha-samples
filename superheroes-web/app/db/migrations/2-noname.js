@@ -1,6 +1,6 @@
 'use strict';
 
-var Sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 
 /**
  * Actions summary:
@@ -11,70 +11,68 @@ var Sequelize = require('sequelize');
  *
  **/
 
-var info = {
-    "revision": 2,
-    "name": "noname",
-    "created": "2018-03-09T09:01:14.212Z",
-    "comment": ""
+const info = {
+    'revision': 2,
+    'name': 'noname',
+    'created': '2018-03-09T09:01:14.212Z',
+    'comment': '',
 };
 
-var migrationCommands = [{
-        fn: "changeColumn",
+const migrationCommands = [{
+        fn: 'changeColumn',
         params: [
-            "Powers",
-            "name",
+            'Powers',
+            'name',
             {
-                "type": Sequelize.STRING(60),
-                "allowNull": false,
-                "unique": true
-            }
-        ]
+                'type': Sequelize.STRING(60),
+                'allowNull': false,
+                'unique': true,
+            },
+        ],
     },
     {
-        fn: "changeColumn",
+        fn: 'changeColumn',
         params: [
-            "PowerTypes",
-            "name",
+            'PowerTypes',
+            'name',
             {
-                "type": Sequelize.STRING(60),
-                "allowNull": false,
-                "unique": true
-            }
-        ]
+                'type': Sequelize.STRING(60),
+                'allowNull': false,
+                'unique': true,
+            },
+        ],
     },
     {
-        fn: "changeColumn",
+        fn: 'changeColumn',
         params: [
-            "Superheros",
-            "name",
+            'Superheros',
+            'name',
             {
-                "type": Sequelize.STRING(60),
-                "allowNull": false,
-                "unique": true
-            }
-        ]
-    }
+                'type': Sequelize.STRING(60),
+                'allowNull': false,
+                'unique': true,
+            },
+        ],
+    },
 ];
 
 module.exports = {
     pos: 0,
-    up: function(queryInterface, Sequelize)
-    {
-        var index = this.pos;
+    up: function(queryInterface, Sequelize) {
+        let index = this.pos;
         return new Promise(function(resolve, reject) {
             function next() {
-                if (index < migrationCommands.length)
-                {
-                    let command = migrationCommands[index];
-                    console.log("[#"+index+"] execute: " + command.fn);
+                if (index < migrationCommands.length) {
+                    const command = migrationCommands[index];
+                    console.log('[#'+index+'] execute: ' + command.fn);
                     index++;
-                    queryInterface[command.fn].apply(queryInterface, command.params).then(next, reject);
-                }
-                else
-                    resolve();
+                    queryInterface[command.fn](...command.params).then(next, reject);
+                } else {
+resolve();
+}
             }
             next();
         });
     },
-    info: info
+    info: info,
 };
